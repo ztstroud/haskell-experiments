@@ -6,6 +6,10 @@ filterer filter (a:as)
     | filter a == True = a : filterer filter as
     | otherwise        = filterer filter as
     
+-- Filters a list using a list comprehension
+comprehensionFilterer :: (a -> Bool) -> [a] -> [a]
+comprehensionFilterer filter list = [elem | elem <- list, filter elem]
+    
 -- Returns true when the given number is positive
 positiveFilter :: (Num n, Ord n) => n -> Bool
 positiveFilter n
